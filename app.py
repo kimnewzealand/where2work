@@ -1,15 +1,41 @@
-"""
-Where2Work - Company Data Visualization Application
-
-A Streamlit web application for visualizing and filtering company data.
-"""
-
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
 from pathlib import Path
 from typing import Optional
+import os
+
+
+def add_umami_analytics():
+    """Add Umami analytics tracking with verification."""
+    # Inject Umami tracking script
+    st.markdown(
+        """
+        <script async defer
+            data-website-id="9d2ef293-c460-4c98-9f42-8259121f93d2"
+            src="https://cloud.umami.is/script.js">
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Inject console log verification script
+    st.markdown(
+        """
+        <script>
+        console.log('📊 Umami Analytics: Script injected and loading...');
+        setTimeout(function() {
+            if (window.umami) {
+                console.log('✅ Umami Analytics: Successfully loaded and active');
+            } else {
+                console.log('⏳ Umami Analytics: Still loading...');
+            }
+        }, 2000);
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def load_company_data(file_path: str) -> Optional[pd.DataFrame]:
@@ -313,6 +339,9 @@ def apply_filters(df: pd.DataFrame, locations: list,
 
 def main():
     """Main application entry point."""
+    # Add Umami analytics tracking
+    add_umami_analytics()
+
     st.set_page_config(
         page_title="Where2Work",
         page_icon="",
@@ -407,6 +436,11 @@ def main():
     all_count = len(all_companies_df)
     st.markdown(f"### 📋 All Companies ({all_count} {('company' if all_count == 1 else 'companies')})")
     create_bubble_chart(all_companies_df, chart_title="", is_rejected=True)
+
+    # Add analytics status indicator in footer (only on Streamlit Cloud)
+    if os.getenv("STREAMLIT_SERVER_HEADLESS") == "true":
+        st.markdown("---")
+        st.caption("📊 Analytics: Active")
 
 
 if __name__ == "__main__":

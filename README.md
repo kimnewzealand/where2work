@@ -28,6 +28,6 @@ Run the app:
 .venv\Scripts\activate
 
 # Run the app
-uv streamlit run app.py
+uv run streamlit run app.py
 ```
 Deployed at `https://where2work.streamlit.app/`
