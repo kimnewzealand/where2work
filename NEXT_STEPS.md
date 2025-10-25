@@ -1,90 +1,146 @@
 # 🚀 Next Steps - Where2Work Development Roadmap
 
-## 📊 Medium Term (1-2 Months)
+## 🎯 Phase 1: Get a Custom URL
 
-### **Option A: Stay with Streamlit**
+**Goal**: Move from Streamlit Cloud's default URL to a custom domain
 
-**Pros:**
-- ✅ Free hosting on Streamlit Cloud
-- ✅ Easy to use and maintain
-- ✅ Quick to validate idea
-- ✅ No migration needed
-- ✅ Hot reload for development
-- ✅ Built-in interactivity
+**Why**:
+- Better branding
+- Easier to share with users
+- Foundation for future scaling
 
-**Cons:**
-- ❌ Limited customization
-- ❌ Not ideal for traditional websites
-- ❌ Streamlit-specific constraints
+**Implementation**:
+- [ ] Register a custom domain (e.g., where2work.com)
+- [ ] Set up DNS records to point to Streamlit Cloud
+- [ ] Configure custom domain in Streamlit Cloud settings
+- [ ] Test custom URL works correctly
+- [ ] Update README and documentation with new URL
 
-**Timeline:** Immediate - already deployed
-
-**Cost:** $0/month
+**Timeline**: 1-2 days
+**Cost**: $10-15/year (domain)
+**Effort**: Low
 
 ---
 
-### **Option B: React Front End + Flask Back End**
+## 🎯 Phase 2: Professional Website with Analytics (Next)
 
-**Architecture:**
+**Goal**: Build a professional website with proper analytics tracking
+
+**Why**:
+- Streamlit is for data apps, not websites
+- Need to track user behavior and engagement
+- Maintain Python-only stack
+- Keep deployment simple and cheap
+- Full control over design and user experience
+
+**Framework: FastAPI + Jinja2 (Recommended)**
+
+### Why FastAPI + Jinja2?
+- **Pros**:
+  - Modern, fast framework (built for 2025)
+  - Full control over HTML/CSS/JavaScript
+  - Professional website appearance
+  - Excellent analytics support (Google Analytics, Plausible)
+  - Easy to learn (Python + HTML)
+  - Async by default (excellent performance)
+  - Perfect for company websites
+- **Cons**:
+  - Need to write HTML/CSS (not a con if you want professional look)
+  - More code than Streamlit
+- **Cost**: Free (self-hosted)
+- **Hosting**: DigitalOcean App Platform ($5-12/month)
+
+### Alternative: Django
+- **Pros**:
+  - All-in-one framework
+  - Built-in admin panel
+  - ORM for database
+  - Very professional
+- **Cons**:
+  - Heavier/more complex
+  - Overkill for simple sites
+  - Steeper learning curve
+- **Best For**: Large, complex websites
+
+**Implementation Checklist**:
+- [ ] Set up FastAPI project structure
+- [ ] Create HTML templates (base, home, companies, company-detail)
+- [ ] Migrate data loading and filtering logic
+- [ ] Create professional CSS styling
+- [ ] Implement company search and filtering
+- [ ] Add interactive features (if needed)
+- [ ] Implement analytics (Google Analytics 4)
+- [ ] Set up custom domain routing
+- [ ] Deploy to DigitalOcean App Platform
+- [ ] Test all features work correctly
+- [ ] Monitor performance and user engagement
+
+**Project Structure**:
 ```
-Frontend (React)
-    ↓ (API calls)
-Backend (Flask)
-    ↓ (queries)
-Database (PostgreSQL/SQLite)
+where2work/
+├── main.py (FastAPI app)
+├── templates/
+│   ├── base.html (layout)
+│   ├── index.html (home page)
+│   ├── companies.html (company list)
+│   └── company-detail.html (single company)
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+├── company_data.csv
+└── requirements.txt
 ```
 
-**Pros:**
-- ✅ Full customization
-- ✅ Professional web application
-- ✅ Scalable architecture
-- ✅ Separate concerns (frontend/backend)
-- ✅ Better performance
-- ✅ Can self-host cheaply
-
-**Cons:**
-- ❌ More complex setup
-- ❌ Requires more development time
-- ❌ Need to manage both frontend and backend
-- ❌ More infrastructure to maintain
-
-**Tech Stack:**
-- **Frontend:** React with Vite
-- **Backend:** Flask (Python)
-- **Database:** PostgreSQL or SQLite
-- **Hosting:** DigitalOcean ($5/month) or similar
-
-**Timeline:** 2-4 weeks for basic implementation
-
-**Cost:** $5-10/month for hosting
+**Timeline**: 2-3 weeks
+**Cost**: $5-12/month (hosting) + domain
+**Effort**: Medium
 
 ---
 
-## 🎯 Recommendation
+## 🎯 Phase 3: Full React + Flask Stack (Future)
 
-**Start with Option A (Streamlit)** to:
-1. Validate the idea with real users
-2. Get feedback on features
-3. Understand user needs better
-4. Build confidence in the product
+**Goal**: Build a production-grade web application with React frontend and Flask backend
 
-**Then migrate to Option B (React + Flask)** when:
-1. You have validated the market
-2. You need more customization
-3. You want a professional web presence
-4. You're ready to scale
+**Why**:
+- Maximum customization and control
+- Professional, scalable architecture
+- Better performance for complex interactions
+- Industry-standard tech stack
+- Easier to hire developers for
 
----
-
-## 📋 Implementation Checklist for Option B
-
+**Implementation Checklist**:
 - [ ] Set up React project with Vite
 - [ ] Create Flask backend API
-- [ ] Design database schema
+- [ ] Design database schema (PostgreSQL)
 - [ ] Implement authentication (if needed)
 - [ ] Migrate data visualization to React/Plotly
-- [ ] Set up deployment pipeline
+- [ ] Set up analytics (Google Analytics 4)
+- [ ] Create deployment pipeline (GitHub Actions)
 - [ ] Configure hosting (DigitalOcean/Vercel/Railway)
-- [ ] Set up monitoring and analytics
+- [ ] Set up monitoring and error tracking
 - [ ] Test on production environment
+- [ ] Implement caching and optimization
 
+**Timeline**: 4-6 weeks
+**Cost**: $10-20/month (hosting) + domain
+**Effort**: High
+
+---
+
+## 📊 Comparison Table
+
+| Aspect | Phase 1 | Phase 2 | Phase 3 |
+|--------|---------|---------|---------|
+| **Framework** | Streamlit | FastAPI + Jinja2 | React + Flask |
+| **Type** | Data App | Professional Website | Full-Stack App |
+| **Analytics** | ❌ None | ✅ Full support | ✅ Full support |
+| **Custom URL** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Professional Look** | ⚠️ Limited | ✅ Full | ✅ Full |
+| **Cost/month** | Free | $5-12 | $10-20 |
+| **Development Time** | 1-2 days | 2-3 weeks | 4-6 weeks |
+| **Customization** | Low | High | Very High |
+| **Scalability** | Low | Medium | High |
+| **Learning Curve** | None | Low-Medium | Medium |

@@ -1,10 +1,11 @@
 # Where2Work - Quick Start Guide
 
 ### Tech Stack:
+- **Package Manager**: uv (ultra-fast Python package installer)
 - **Framework**: Streamlit (Python web framework)
 - **Visualization**: Plotly (interactive charts)
 - **Data Processing**: Pandas
-- **Package Manager**: uv (ultra-fast Python package installer)
+
 
 ## 🚀 Running the App
 
